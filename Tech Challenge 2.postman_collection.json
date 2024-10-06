@@ -1,0 +1,60 @@
+{
+	"info": {
+		"_postman_id": "43b08662-3982-4ee4-8271-c432b4ab80f3",
+		"name": "Tech Challenge 2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21540598"
+	},
+	"item": [
+		{
+			"name": "Start Request",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8082/start?plateNumber=ABCD1234",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"start"
+					],
+					"query": [
+						{
+							"key": "plateNumber",
+							"value": "ABCD1234"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "End Request",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8082/end?plateNumber=ABCD1234",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"end"
+					],
+					"query": [
+						{
+							"key": "plateNumber",
+							"value": "ABCD1234"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
