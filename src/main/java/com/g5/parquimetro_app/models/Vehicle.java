@@ -10,7 +10,6 @@ import lombok.Data;
 import lombok.extern.jackson.Jacksonized;
 
 import java.time.LocalDateTime;
-
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.util.Locale;
@@ -31,6 +30,14 @@ public class Vehicle {
     private LocalDateTime endTime;
 
     private double amountDue;
+
+    private VehicleType type;
+
+    private ParkingStatus status;
+
+    private PaymentMethod paymentMethod;
+
+    private int chosenHours;
 
     @JsonGetter("formattedAmountDue")
     public String getFormattedAmountDue() {
