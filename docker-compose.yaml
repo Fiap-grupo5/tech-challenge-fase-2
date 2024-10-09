@@ -6,21 +6,21 @@ services:
       - 8082:8080
     depends_on:
       - mongo
-    links:
-      - mongo
     environment:
       SPRING_APPLICATION_JSON: '{
           "spring.data.mongodb.uri":"mongodb://mongo:27017/parquimetro"
         }'
     networks:
       - app-network
+    deploy:
+      replicas: 3
 
   mongo:
     image: 'mongo:7.0.5'
     ports:
       - 27017:27017
     volumes:
-      - my-data:/var/lib/mongodb/data
+      - my-data:/data/db
     networks:
       - app-network
 
