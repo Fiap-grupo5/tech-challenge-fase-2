@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "8201923e-a20a-4ad6-badd-dec0fdc47098",
+		"_postman_id": "4731a674-28b5-4f18-9952-9a320b64b062",
 		"name": "Tech Challenge 2",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "21540598"
@@ -11,8 +11,17 @@
 			"request": {
 				"method": "POST",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"plateNumber\": \"ABC1325\",\r\n    \"type\": \"CAR\",\r\n    \"chosenHours\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
-					"raw": "http://localhost:8082/start?plateNumber=ABCD1234",
+					"raw": "http://localhost:8082/start",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -20,12 +29,6 @@
 					"port": "8082",
 					"path": [
 						"start"
-					],
-					"query": [
-						{
-							"key": "plateNumber",
-							"value": "ABCD1234"
-						}
 					]
 				}
 			},
@@ -36,8 +39,17 @@
 			"request": {
 				"method": "POST",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"plateNumber\": \"ABC1325\",\r\n    \"paymentMethod\": \"CARD\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
-					"raw": "http://localhost:8082/end?plateNumber=ABCD1234",
+					"raw": "http://localhost:8082/end",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -45,12 +57,6 @@
 					"port": "8082",
 					"path": [
 						"end"
-					],
-					"query": [
-						{
-							"key": "plateNumber",
-							"value": "ABCD1234"
-						}
 					]
 				}
 			},
@@ -58,9 +64,32 @@
 		},
 		{
 			"name": "Status Request",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
 			"request": {
 				"method": "GET",
-				"header": []
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"plateNumber\": \"ABC1325\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/status",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"status"
+					]
+				}
 			},
 			"response": []
 		}
