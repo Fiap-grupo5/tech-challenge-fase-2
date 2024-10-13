@@ -14,26 +14,27 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 
 @RestController
 @RequestMapping(value = "/")
-@Tag(name = "Vehicle", description = "Vehicle API") 
+@Tag(name = "Veículos", description = "Veículos API") 
 public class VehicleController {
 
     @Autowired
     private VehicleService vehicleService;
 
     @PostMapping("/start")
-    @Operation(summary = "Start parking", description = "Start parking for a vehicle")
+    @Operation(summary = "Iniciar Estacionamento", description = "API para iniciar o estacionamento de um veículo. Tipo suportado: CAR ou MOTORCYCLE")
     public VehicleDTO startParking(@RequestBody StartParkingRequestDTO request) {
         return vehicleService.startParking(request.getPlateNumber(), request.getType(), request.getChosenHours());
     }
 
 
     @PostMapping("/end")
-    @Operation(summary = "End parking", description = "End parking for a vehicle")
+    @Operation(summary = "Finalizar Estacionamento", description = "API para finalizar o estacionamento de um veículo")
     public VehicleDTO endParking(@RequestBody EndParkingRequestDTO request) {
         return vehicleService.endParking(request.getPlateNumber(), request.getPaymentMethod());
     }
 
     @GetMapping("/status")
+    @Operation(summary = "Status do Veículo", description = "API para obter o status de um veículo no estacionamento")
     public VehicleDTO getVehicleStatus(@RequestBody StatusRequestDTO request) {
         return vehicleService.getVehicleStatus(request.getPlateNumber());
     }
