@@ -1,6 +1,7 @@
 package com.g5.parquimetro_app.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import com.g5.parquimetro_app.services.VehicleService;
@@ -9,6 +10,7 @@ import com.g5.parquimetro_app.dtos.StartParkingRequestDTO;
 import com.g5.parquimetro_app.dtos.StatusRequestDTO;
 import com.g5.parquimetro_app.dtos.VehicleDTO;
 
+@Controller
 @RestController
 @RequestMapping(value = "/")
 public class VehicleController {
