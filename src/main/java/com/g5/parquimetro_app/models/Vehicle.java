@@ -1,6 +1,7 @@
 package com.g5.parquimetro_app.models;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Version;
 import org.springframework.data.mongodb.core.mapping.Document;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonGetter;
@@ -38,6 +39,9 @@ public class Vehicle {
     private PaymentMethod paymentMethod;
 
     private int chosenHours;
+
+    @Version
+    private Long version;
 
     @JsonGetter("formattedAmountDue")
     public String getFormattedAmountDue() {
