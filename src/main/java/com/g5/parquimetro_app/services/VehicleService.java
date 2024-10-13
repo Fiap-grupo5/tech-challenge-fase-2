@@ -56,7 +56,7 @@ public class VehicleService {
                 .startTime(vehicle.getStartTime())
                 .type(vehicle.getType())
                 .status(vehicle.getStatus())
-                .paymentMethod(vehicle.getPaymentMethod() != null ? vehicle.getPaymentMethod().toString() : null)
+                .paymentMethod(vehicle.getPaymentMethod() != null ? vehicle.getPaymentMethod() : null)
                 .formattedAmountDue(vehicle.getFormattedAmountDue())
                 .chosenHours(chosenHours)
                 .build();
@@ -96,7 +96,7 @@ public class VehicleService {
                 .endTime(vehicle.getEndTime())
                 .type(vehicle.getType())
                 .status(vehicle.getStatus())
-                .paymentMethod(vehicle.getPaymentMethod() != null ? vehicle.getPaymentMethod().toString() : null)
+                .paymentMethod(vehicle.getPaymentMethod() != null ? vehicle.getPaymentMethod() : null)
                 .formattedAmountDue(vehicle.getFormattedAmountDue())
                 .chosenHours(vehicle.getChosenHours())
                 .build();
@@ -129,7 +129,7 @@ public class VehicleService {
                 .endTime(null)
                 .type(vehicle.getType())
                 .status(vehicle.getStatus())
-                .paymentMethod(vehicle.getPaymentMethod() != null ? vehicle.getPaymentMethod().toString() : null)
+                .paymentMethod(vehicle.getPaymentMethod() != null ? vehicle.getPaymentMethod() : null)
                 .formattedAmountDue(vehicle.getFormattedAmountDue())
                 .chosenHours(vehicle.getChosenHours())
                 .build();

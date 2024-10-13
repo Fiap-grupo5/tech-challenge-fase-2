@@ -2,6 +2,7 @@ package com.g5.parquimetro_app.dtos;
 
 import com.g5.parquimetro_app.models.VehicleType;
 import com.g5.parquimetro_app.models.ParkingStatus;
+import com.g5.parquimetro_app.models.PaymentMethod;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Builder;
 import lombok.Data;
@@ -24,7 +25,7 @@ public class VehicleDTO {
 
     private VehicleType type;
     private ParkingStatus status;
-    private String paymentMethod;
+    private PaymentMethod paymentMethod;
 
     private String formattedAmountDue;   
     private int chosenHours;

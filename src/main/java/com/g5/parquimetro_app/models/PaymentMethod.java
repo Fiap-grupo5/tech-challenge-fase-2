@@ -1,8 +1,8 @@
 package com.g5.parquimetro_app.models;
 
 public enum PaymentMethod {
-    CARD("card"),
-    PIX("pix");
+    CARD("CARD"),
+    PIX("PIX");
 
     private final String method;
 

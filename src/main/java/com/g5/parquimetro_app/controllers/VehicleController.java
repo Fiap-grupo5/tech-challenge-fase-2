@@ -1,16 +1,15 @@
 package com.g5.parquimetro_app.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import io.swagger.v3.oas.annotations.tags.Tag;
 
 import com.g5.parquimetro_app.services.VehicleService;
 import com.g5.parquimetro_app.dtos.EndParkingRequestDTO;
 import com.g5.parquimetro_app.dtos.StartParkingRequestDTO;
-import com.g5.parquimetro_app.dtos.StatusRequestDTO;
 import com.g5.parquimetro_app.dtos.VehicleDTO;
 
-@Controller
+@Tag(name = "Veículos", description = "Operações relacionadas ao estacionamento de veículos")
 @RestController
 @RequestMapping(value = "/")
 public class VehicleController {
@@ -28,8 +27,8 @@ public class VehicleController {
         return vehicleService.endParking(request.getPlateNumber(), request.getPaymentMethod());
     }
 
-    @GetMapping("/status")
-    public VehicleDTO getVehicleStatus(@RequestBody StatusRequestDTO request) {
-        return vehicleService.getVehicleStatus(request.getPlateNumber());
+    @GetMapping("/status/{plateNumber}")
+    public VehicleDTO getVehicleStatus(@PathVariable String plateNumber) {
+        return vehicleService.getVehicleStatus(plateNumber);
     }
 }
