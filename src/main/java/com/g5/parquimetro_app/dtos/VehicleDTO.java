@@ -16,7 +16,6 @@ import java.time.LocalDateTime;
 public class VehicleDTO {
     private String id;
     private String plateNumber;
-
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy HH:mm:ss")
     private LocalDateTime startTime;
 

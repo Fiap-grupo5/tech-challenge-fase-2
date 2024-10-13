@@ -22,6 +22,7 @@ import java.util.Locale;
 public class Vehicle {
     @Id
     private String id;
+
     private String plateNumber;
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy HH:mm:ss")

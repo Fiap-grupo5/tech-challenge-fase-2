@@ -1,5 +1,6 @@
 package com.g5.parquimetro_app.controllers;
 
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -18,12 +19,12 @@ public class VehicleController {
     private VehicleService vehicleService;
 
     @PostMapping("/start")
-    public VehicleDTO startParking(@RequestBody StartParkingRequestDTO request) {
+    public VehicleDTO startParking(@Valid @RequestBody StartParkingRequestDTO request) {
         return vehicleService.startParking(request.getPlateNumber(), request.getType(), request.getChosenHours());
     }
 
     @PostMapping("/end")
-    public VehicleDTO endParking(@RequestBody EndParkingRequestDTO request) {
+    public VehicleDTO endParking(@Valid @RequestBody EndParkingRequestDTO request) {
         return vehicleService.endParking(request.getPlateNumber(), request.getPaymentMethod());
     }
 
