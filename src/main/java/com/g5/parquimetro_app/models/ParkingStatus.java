@@ -1,9 +1,9 @@
 package com.g5.parquimetro_app.models;
 
 public enum ParkingStatus {
-    EXPIRED("expired"),
-    IN_PROGRESS("in progress"),
-    PAID("paid");
+    EXPIRED("EXPIRED"),
+    IN_PROGRESS("IN_PROGRESS"),
+    PAID("PAID");
 
     private final String status;
 
