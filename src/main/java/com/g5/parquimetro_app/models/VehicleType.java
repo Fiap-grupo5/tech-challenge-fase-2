@@ -1,8 +1,8 @@
 package com.g5.parquimetro_app.models;
 
 public enum VehicleType {
-    CAR("car"),
-    MOTORCYCLE("motorcycle");
+    CAR("CAR"),
+    MOTORCYCLE("MOTORCYCLE");
 
     private final String type;
 

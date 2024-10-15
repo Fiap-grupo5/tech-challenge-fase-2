@@ -8,6 +8,8 @@ import com.g5.parquimetro_app.models.ParkingStatus;
 import com.g5.parquimetro_app.models.PaymentMethod;
 import com.g5.parquimetro_app.repository.VehicleRepository;
 import com.g5.parquimetro_app.dtos.VehicleDTO;
+import org.springframework.transaction.annotation.Transactional;
+
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.Optional;
@@ -25,6 +27,7 @@ public class VehicleService {
     private static final int MINUTES_IN_HOUR = 60;
     private static final int MAX_HOURS = 9;
 
+    @Transactional
     public VehicleDTO startParking(String plateNumber, VehicleType type, int chosenHours) {
         Optional<Vehicle> existingVehicle = vehicleRepository.findByPlateNumberAndStatus(plateNumber, ParkingStatus.IN_PROGRESS);
         
@@ -56,7 +59,7 @@ public class VehicleService {
                 .startTime(vehicle.getStartTime())
                 .type(vehicle.getType())
                 .status(vehicle.getStatus())
-                .paymentMethod(vehicle.getPaymentMethod() != null ? vehicle.getPaymentMethod().toString() : null)
+                .paymentMethod(vehicle.getPaymentMethod() != null ? vehicle.getPaymentMethod() : null)
                 .formattedAmountDue(vehicle.getFormattedAmountDue())
                 .chosenHours(chosenHours)
                 .build();
@@ -67,6 +70,7 @@ public class VehicleService {
         return chosenHours * ratePerHour;
     }
 
+    @Transactional
     public VehicleDTO endParking(String plateNumber, PaymentMethod paymentMethod) {
         Vehicle vehicle = vehicleRepository.findByPlateNumberAndStatus(plateNumber, ParkingStatus.IN_PROGRESS)
             .orElseThrow(() -> new IllegalStateException("Veículo não encontrado com status IN_PROGRESS: " + plateNumber));
@@ -96,13 +100,13 @@ public class VehicleService {
                 .endTime(vehicle.getEndTime())
                 .type(vehicle.getType())
                 .status(vehicle.getStatus())
-                .paymentMethod(vehicle.getPaymentMethod() != null ? vehicle.getPaymentMethod().toString() : null)
+                .paymentMethod(vehicle.getPaymentMethod() != null ? vehicle.getPaymentMethod() : null)
                 .formattedAmountDue(vehicle.getFormattedAmountDue())
                 .chosenHours(vehicle.getChosenHours())
                 .build();
     }
 
-         
+    @Transactional
     public VehicleDTO getVehicleStatus(String plateNumber) {
         Vehicle vehicle = vehicleRepository.findByPlateNumberAndStatus(plateNumber, ParkingStatus.IN_PROGRESS)
             .orElseThrow(() -> new IllegalStateException("Veículo não encontrado ou já encerrado: " + plateNumber));
@@ -129,7 +133,7 @@ public class VehicleService {
                 .endTime(null)
                 .type(vehicle.getType())
                 .status(vehicle.getStatus())
-                .paymentMethod(vehicle.getPaymentMethod() != null ? vehicle.getPaymentMethod().toString() : null)
+                .paymentMethod(vehicle.getPaymentMethod() != null ? vehicle.getPaymentMethod() : null)
                 .formattedAmountDue(vehicle.getFormattedAmountDue())
                 .chosenHours(vehicle.getChosenHours())
                 .build();
